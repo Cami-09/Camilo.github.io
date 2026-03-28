@@ -4,110 +4,26 @@
   <meta charset="UTF-8">
   <title>Tutoriales - Blog de Ingeniería de Sistemas</title>
   <style>
-    /* ===== Diseño general ===== */
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f0f2f5;  /* fondo de toda la página */
-      color: #333333;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* ===== Cabecera ===== */
-    header {
-      background-color: #0077cc;
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-
-    header p {
-      margin: 5px 0 0 0;
-      font-size: 1.2em;
-      color: #e0f0ff;
-    }
-
-    /* ===== Menú de navegación ===== */
-    nav {
-      background-color: #005fa3;
-      text-align: center;
-      padding: 10px 0;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      font-size: 1em;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #a0d4ff;
-    }
-
-    /* ===== Contenedor de artículos ===== */
-    .container {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
-
-    article {
-      background-color: white;  /* fondo de cada artículo */
-      padding: 25px;
-      margin-bottom: 25px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-    }
-
-    article:hover {
-      transform: translateY(-3px);
-    }
-
-    article h2 {
-      margin-top: 0;
-      color: #0077cc;
-    }
-
-    article p {
-      line-height: 1.6;
-    }
-
-    /* ===== Footer ===== */
-    footer {
-      background-color: #222222;
-      color: #ffffff;
-      text-align: center;
-      padding: 20px;
-      margin-top: 30px;
-      font-size: 0.9em;
-    }
-
-    /* ===== Enlaces dentro del contenido ===== */
-    a {
-      color: #0077cc;
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: #005fa3;
-      text-decoration: underline;
-    }
+    body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f0f2f5; color:#333; margin:0; padding:0; }
+    header { background:#0077cc; color:white; text-align:center; padding:40px 20px; }
+    nav { background:#005fa3; text-align:center; padding:10px 0; }
+    nav a { color:white; margin:0 15px; text-decoration:none; font-weight:bold; transition:0.3s; }
+    nav a:hover { color:#a0d4ff; }
+    .container { max-width:900px; margin:30px auto; padding:0 20px; }
+    .accordion { background:white; color:#0077cc; cursor:pointer; padding:20px; width:100%; border:none; text-align:left; outline:none; font-size:1.2em; border-radius:10px; margin-bottom:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s; }
+    .accordion:hover { background:#e6f0ff; }
+    .panel { padding:0 20px; background:white; display:none; overflow:hidden; border-radius:0 0 10px 10px; box-shadow:0 4px 10px rgba(0,0,0,0.05); margin-bottom:15px; }
+    .panel p { margin:15px 0; line-height:1.6; }
+    footer { background:#222; color:white; text-align:center; padding:20px; margin-top:30px; font-size:0.9em; }
+    a { color:#0077cc; text-decoration:none; }
+    a:hover { color:#005fa3; text-decoration:underline; }
   </style>
 </head>
 <body>
 
 <header>
   <h1>Blog de Ingeniería de Sistemas</h1>
-  <p>Tutoriales y guías prácticas</p>
+  <p>Tutoriales interactivos</p>
 </header>
 
 <nav>
@@ -118,25 +34,36 @@
 </nav>
 
 <div class="container">
-  <article>
-    <h2>Tutorial de Python</h2>
+  <button class="accordion">Tutorial de Python</button>
+  <div class="panel">
     <p>Aprende lo básico de Python: variables, estructuras de control, funciones y proyectos simples.</p>
-  </article>
+  </div>
 
-  <article>
-    <h2>Tutorial de JavaScript</h2>
+  <button class="accordion">Tutorial de JavaScript</button>
+  <div class="panel">
     <p>Aprende a crear páginas interactivas usando JavaScript, manipulación del DOM y eventos.</p>
-  </article>
+  </div>
 
-  <article>
-    <h2>Tutorial de HTML y CSS</h2>
+  <button class="accordion">Tutorial de HTML y CSS</button>
+  <div class="panel">
     <p>Aprende a crear páginas web bonitas y responsivas usando HTML y CSS.</p>
-  </article>
+  </div>
 </div>
 
 <footer>
   © 2026 - Blog de Ingeniería de Sistemas | Cami-09
 </footer>
+
+<script>
+const acc=document.getElementsByClassName("accordion");
+for(let i=0;i<acc.length;i++){
+  acc[i].addEventListener("click",function(){
+    this.classList.toggle("active");
+    const panel=this.nextElementSibling;
+    panel.style.display=(panel.style.display==="block")?"none":"block";
+  });
+}
+</script>
 
 </body>
 </html>
