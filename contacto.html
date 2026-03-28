@@ -10,8 +10,10 @@
     nav a { color:white; margin:0 15px; text-decoration:none; font-weight:bold; transition:0.3s; }
     nav a:hover { color:#a0d4ff; }
     .container { max-width:900px; margin:30px auto; padding:0 20px; }
-    article { background:white; padding:25px; margin-bottom:25px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
-    article h2 { color:#0077cc; margin-top:0; }
+    .accordion { background:white; color:#0077cc; cursor:pointer; padding:20px; width:100%; border:none; text-align:left; outline:none; font-size:1.2em; border-radius:10px; margin-bottom:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s; }
+    .accordion:hover { background:#e6f0ff; }
+    .panel { padding:0 20px; background:white; display:none; overflow:hidden; border-radius:0 0 10px 10px; box-shadow:0 4px 10px rgba(0,0,0,0.05); margin-bottom:15px; }
+    .panel p { margin:15px 0; line-height:1.6; }
     footer { background:#222; color:white; text-align:center; padding:20px; margin-top:30px; font-size:0.9em; }
     a { color:#0077cc; text-decoration:none; }
     a:hover { color:#005fa3; text-decoration:underline; }
@@ -21,7 +23,7 @@
 
 <header>
   <h1>Blog de Ingeniería de Sistemas</h1>
-  <p>Contáctame para dudas o colaboraciones</p>
+  <p>Contáctame</p>
 </header>
 
 <nav>
@@ -32,15 +34,31 @@
 </nav>
 
 <div class="container">
-  <article>
-    <h2>Contacto</h2>
-    <p>Escríbeme a <a href="mailto:cami09@example.com">cami09@example.com</a> para dudas, sugerencias o colaboraciones.</p>
-  </article>
+  <button class="accordion">Email de contacto</button>
+  <div class="panel">
+    <p>Escríbeme a <a href="mailto:cami09@example.com">cami09@example.com</a> para dudas o colaboraciones.</p>
+  </div>
+
+  <button class="accordion">Formulario (opcional)</button>
+  <div class="panel">
+    <p>Puedes integrar un formulario de contacto aquí si quieres recibir mensajes directamente desde la página.</p>
+  </div>
 </div>
 
 <footer>
   © 2026 - Blog de Ingeniería de Sistemas | Cami-09
 </footer>
+
+<script>
+const acc=document.getElementsByClassName("accordion");
+for(let i=0;i<acc.length;i++){
+  acc[i].addEventListener("click",function(){
+    this.classList.toggle("active");
+    const panel=this.nextElementSibling;
+    panel.style.display=(panel.style.display==="block")?"none":"block";
+  });
+}
+</script>
 
 </body>
 </html>
