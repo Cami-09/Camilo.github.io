@@ -9,14 +9,26 @@
     nav { background:#005fa3; text-align:center; padding:10px 0; }
     nav a { color:white; margin:0 15px; text-decoration:none; font-weight:bold; transition:0.3s; }
     nav a:hover { color:#a0d4ff; }
+    
     .container { max-width:900px; margin:30px auto; padding:0 20px; }
-    .accordion { background:white; color:#0077cc; cursor:pointer; padding:20px; width:100%; border:none; text-align:left; outline:none; font-size:1.2em; border-radius:10px; margin-bottom:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s; }
+    
+    /* Estilos del Acordeón */
+    .accordion { background:white; color:#0077cc; cursor:pointer; padding:20px; width:100%; border:none; text-align:left; outline:none; font-size:1.2em; border-radius:10px; margin-bottom:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s; font-weight: bold; }
     .accordion:hover { background:#e6f0ff; }
-    .panel { padding:0 20px; background:white; display:none; overflow:hidden; border-radius:0 0 10px 10px; box-shadow:0 4px 10px rgba(0,0,0,0.05); margin-bottom:15px; }
-    .panel p { margin:15px 0; line-height:1.6; }
+    .active { border-radius:10px 10px 0 0; margin-bottom:0; background:#e6f0ff; }
+    
+    .panel { padding:20px; background:white; display:none; overflow:hidden; border-radius:0 0 10px 10px; box-shadow:0 4px 10px rgba(0,0,0,0.05); margin-bottom:15px; border-top: 1px solid #eee; }
+    
+    /* Estilos de Contenido Profesional */
+    .tutorial-content { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+    .tutorial-image { flex: 1; min-width: 250px; }
+    .tutorial-image img { width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .tutorial-text { flex: 2; min-width: 250px; }
+    
+    .btn-youtube { display: inline-block; background: #FF0000; color: white !important; padding: 10px 20px; border-radius: 5px; text-decoration: none !important; font-weight: bold; margin-top: 15px; transition: 0.3s; }
+    .btn-youtube:hover { background: #cc0000; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+    
     footer { background:#222; color:white; text-align:center; padding:20px; margin-top:30px; font-size:0.9em; }
-    a { color:#0077cc; text-decoration:none; }
-    a:hover { color:#005fa3; text-decoration:underline; }
   </style>
 </head>
 <body>
@@ -34,25 +46,59 @@
 </nav>
 
 <div class="container">
+  
   <button class="accordion">Tutorial de Python</button>
   <div class="panel">
-    <p>Python es un lenguaje de programación potente y fácil de aprender. Tiene estructuras de datos de alto nivel eficientes y un simple pero efectivo sistema de programación orientado a objetos. La elegante sintaxis de Python y su tipado dinámico, junto a su naturaleza interpretada lo convierten en un lenguaje ideal para scripting y desarrollo rápido de aplicaciones en muchas áreas, para la mayoría de plataformas.</p>
+    <div class="tutorial-content">
+      <div class="tutorial-image">
+        <img src="https://img.youtube.com/vi/chPhlsXWSPM/maxresdefault.jpg" alt="Miniatura Python">
+      </div>
+      <div class="tutorial-text">
+        <p>Python es un lenguaje potente y fácil de aprender. Ideal para ciencia de datos, IA y desarrollo web rápido.</p>
+        <a href="https://www.youtube.com/watch?v=chPhlsXWSPM" target="_blank" class="btn-youtube">▶ Ver Tutorial en YouTube</a>
+      </div>
+    </div>
   </div>
 
   <button class="accordion">Tutorial de JavaScript</button>
   <div class="panel">
-    <p>Aprende a crear páginas interactivas usando JavaScript, manipulación del DOM y eventos youtube.com.</p>
+    <div class="tutorial-content">
+      <div class="tutorial-image">
+        <img src="https://img.youtube.com/vi/z95mZVUcJ-E/maxresdefault.jpg" alt="Miniatura JS">
+      </div>
+      <div class="tutorial-text">
+        <p>Aprende a crear páginas interactivas usando JavaScript, manipulación del DOM y gestión de eventos dinámicos.</p>
+        <a href="https://www.youtube.com/watch?v=z95mZVUcJ-E" target="_blank" class="btn-youtube">▶ Ver en YouTube</a>
+      </div>
+    </div>
   </div>
 
   <button class="accordion">Tutorial de Sistemas Operativos</button>
   <div class="panel">
-    <p>Un sistema operativo (SO) es el software fundamental que gestiona el hardware y permite la ejecución de aplicaciones en ordenadores, teléfonos y otros dispositivos. Actúa como intermediario entre el usuario y la máquina, administrando memoria, CPU, periféricos y archivos. Ejemplos populares son Windows, macOS, Linux, Android e iOS.</p>
+    <div class="tutorial-content">
+      <div class="tutorial-image">
+        <img src="https://img.youtube.com/vi/26QPDBe-NB8/maxresdefault.jpg" alt="Miniatura SO">
+      </div>
+      <div class="tutorial-text">
+        <p>Gestión de memoria, procesos y hardware. Entiende cómo funcionan Windows, Linux y macOS desde la raíz.</p>
+        <a href="https://www.youtube.com/watch?v=26QPDBe-NB8" target="_blank" class="btn-youtube">▶ Ver Clase Completa</a>
+      </div>
+    </div>
   </div>
   
   <button class="accordion">Tutorial de HTML y CSS</button>
   <div class="panel">
-    <p>Aprende a crear páginas web bonitas y responsivas usando HTML y CSS.</p>
+    <div class="tutorial-content">
+      <div class="tutorial-image">
+        <img src="https://img.youtube.com/vi/rr2H086z16s/maxresdefault.jpg" alt="Miniatura HTML CSS">
+      </div>
+      <div class="tutorial-text">
+        <p>Domina la estructura y el diseño web moderno para crear interfaces responsivas y visualmente atractivas.</p>
+        <a href="https://www.youtube.com/watch?v=rr2H086z16s" target="_blank" class="btn-youtube">▶ Abrir Video Tutorial</a>
+      </div>
+    </div>
   </div>
+
 </div>
 
 <footer>
@@ -60,12 +106,16 @@
 </footer>
 
 <script>
-const acc=document.getElementsByClassName("accordion");
-for(let i=0;i<acc.length;i++){
-  acc[i].addEventListener("click",function(){
+const acc = document.getElementsByClassName("accordion");
+for (let i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
     this.classList.toggle("active");
-    const panel=this.nextElementSibling;
-    panel.style.display=(panel.style.display==="block")?"none":"block";
+    const panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
   });
 }
 </script>
