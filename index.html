@@ -2,25 +2,86 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Inicio - Blog de Ingeniería de Sistemas </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio - Blog de Ingeniería de Sistemas</title>
   <style>
-    body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f0f2f5; color:#333; margin:0; padding:0; }
-    header { background:#0077cc; color:white; text-align:center; padding:40px 20px; }
-    nav { background:#005fa3; text-align:center; padding:10px 0; }
-    nav a { color:white; margin:0 15px; text-decoration:none; font-weight:bold; transition:0.3s; }
+    :root {
+      --primary: #0077cc;
+      --secondary: #005fa3;
+      --dark: #222;
+      --light: #f0f2f5;
+      --white: #ffffff;
+    }
+
+    body { font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: var(--light); color:#333; margin:0; padding:0; overflow-x: hidden; }
+    
+    /* Header & Nav */
+    header { background: var(--primary); color:white; text-align:center; padding:20px; }
+    nav { background: var(--secondary); text-align:center; padding:15px 0; sticky: top; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    nav a { color:white; margin:0 20px; text-decoration:none; font-weight:bold; transition:0.3s; font-size: 1.1em; }
     nav a:hover { color:#a0d4ff; }
-    .container { max-width:900px; margin:30px auto; padding:0 20px; }
-    article { background:white; padding:25px; margin-bottom:25px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
-    article h2 { color:#0077cc; margin-top:0; }
-    footer { background:#222; color:white; text-align:center; padding:20px; margin-top:30px; font-size:0.9em; }
+
+    /* Banner Principal (Hero) */
+    .hero {
+      background: linear-gradient(rgba(0, 119, 204, 0.8), rgba(0, 95, 163, 0.8)), 
+                  url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero h1 { font-size: 3em; margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
+    .hero p { font-size: 1.2em; margin: 20px 0; max-width: 600px; opacity: 0.9; }
+    .btn-cta { 
+      background: var(--white); color: var(--primary); padding: 12px 30px; 
+      border-radius: 30px; text-decoration: none; font-weight: bold; 
+      transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .btn-cta:hover { background: #e6f0ff; transform: scale(1.05); }
+
+    /* Contenedor y Tarjetas */
+    .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+    
+    .features-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+      gap: 25px; 
+      margin-top: -60px; /* Eleva las tarjetas sobre el banner */
+    }
+
+    .feature-card {
+      background: var(--white);
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: 0.3s;
+      border-bottom: 4px solid transparent;
+    }
+    .feature-card:hover { transform: translateY(-10px); border-bottom: 4px solid var(--primary); }
+    .feature-card i { font-size: 40px; color: var(--primary); margin-bottom: 15px; display: block; }
+    .feature-card h3 { margin: 10px 0; color: var(--dark); }
+
+    .welcome-section { background: var(--white); padding: 40px; border-radius: 15px; margin-top: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+    
+    footer { background: var(--dark); color:white; text-align:center; padding:30px; margin-top:50px; }
+
+    /* Animación simple */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero, .feature-card { animation: fadeIn 0.8s ease-out; }
   </style>
 </head>
 <body>
-
-<header>
-  <h1>Blog de Ingeniería de Sistemas Camilo</h1>
-  <p>Bienvenido a mi blog</p>
-</header>
 
 <nav>
   <a href="index.html">Inicio</a>
@@ -29,25 +90,47 @@
   <a href="contacto.html">Contacto</a>
 </nav>
 
+<section class="hero">
+  <h1>Ingeniería de Sistemas</h1>
+  <p>Explora el mundo del desarrollo de software, la arquitectura de sistemas y las últimas tendencias tecnológicas.</p>
+  <a href="tutoriales.html" class="btn-cta">Empezar a Aprender</a>
+</section>
+
 <div class="container">
-  <article>
-    <h2>Bienvenido</h2>
-    <p>Esta es la página de inicio de mi blog de ingeniería de sistemas. Aquí encontrarás noticias, artículos y recursos útiles.</p>
+  <div class="features-grid">
+    <div class="feature-card">
+      <i>💻</i>
+      <h3>Tutoriales</h3>
+      <p>Guías paso a paso de Python, JS y más con recursos visuales.</p>
+      <a href="tutoriales.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">Ver más →</a>
+    </div>
+
+    <div class="feature-card">
+      <i>🚀</i>
+      <h3>Proyectos</h3>
+      <p>Casos prácticos y aplicaciones reales desarrolladas por mí.</p>
+      <a href="proyectos.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">Explorar →</a>
+    </div>
+
+    <div class="feature-card">
+      <i>📚</i>
+      <h3>Recursos</h3>
+      <p>Documentación y enlaces externos para potenciar tu carrera.</p>
+      <a href="contacto.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">Contactar →</a>
+    </div>
+  </div>
+
+  <article class="welcome-section">
+    <h2>Bienvenido a mi espacio digital</h2>
+    <p>Hola, soy Camilo. He creado este blog como un repositorio de conocimiento donde comparto mi trayectoria en la ingeniería de sistemas. Mi objetivo es simplificar conceptos complejos y mostrar el lado práctico de la tecnología.</p>
+    <p>En este sitio no solo encontrarás código, sino también la lógica detrás de cada solución. ¡Siéntete libre de explorar los proyectos!</p>
   </article>
 </div>
 
-<div class="container">
-  <article>
-    <h2>Bienvenidos a mi blog de Ingenieria de Sistemas</h2>
-    <p>En esta pagina aprenderas todo lo relacionado con Ingenieria de sistemas</p>
-  </article>
-</div>
-  
 <footer>
-  © 2026 - Blog de Ingeniería de Sistemas | Camilo
+  <p>© 2026 - Portafolio Profesional de Ingeniería | Camilo</p>
+  <small>Bucaramanga, Colombia</small>
 </footer>
 
 </body>
 </html>
-
-
