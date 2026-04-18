@@ -9,21 +9,50 @@
     nav { background:#005fa3; text-align:center; padding:10px 0; }
     nav a { color:white; margin:0 15px; text-decoration:none; font-weight:bold; transition:0.3s; }
     nav a:hover { color:#a0d4ff; }
+    
     .container { max-width:900px; margin:30px auto; padding:0 20px; }
-    .accordion { background:white; color:#0077cc; cursor:pointer; padding:20px; width:100%; border:none; text-align:left; outline:none; font-size:1.2em; border-radius:10px; margin-bottom:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s; }
+    
+    /* Estilos del Acordeón */
+    .accordion { background:white; color:#0077cc; cursor:pointer; padding:20px; width:100%; border:none; text-align:left; outline:none; font-size:1.2em; border-radius:10px; margin-bottom:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s; font-weight: bold; display: flex; align-items: center; justify-content: space-between; }
     .accordion:hover { background:#e6f0ff; }
-    .panel { padding:0 20px; background:white; display:none; overflow:hidden; border-radius:0 0 10px 10px; box-shadow:0 4px 10px rgba(0,0,0,0.05); margin-bottom:15px; }
-    .panel p { margin:15px 0; line-height:1.6; }
+    .active { border-radius:10px 10px 0 0; margin-bottom:0; background:#e6f0ff; }
+    
+    .panel { padding:25px; background:white; display:none; overflow:hidden; border-radius:0 0 10px 10px; box-shadow:0 4px 10px rgba(0,0,0,0.05); margin-bottom:15px; border-top: 1px solid #eee; }
+    
+    /* Layout de Proyecto con Imagen */
+    .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; align-items: center; }
+    
+    @media (max-width: 768px) {
+        .project-grid { grid-template-columns: 1fr; }
+    }
+
+    .img-container { position: relative; width: 100%; height: 220px; overflow: hidden; border-radius: 12px; border: 1px solid #ddd; background: #eee; }
+    .img-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+    .img-container img:hover { transform: scale(1.05); }
+
+    .project-info h2 { margin-top: 0; color: #005fa3; font-size: 1.4em; }
+    .project-info p { line-height: 1.6; color: #555; }
+
+    /* Etiquetas de tecnología */
+    .tech-stack { margin: 10px 0; }
+    .tech-badge { background: #e1ecf4; color: #39739d; padding: 5px 10px; border-radius: 4px; font-size: 0.8em; font-weight: bold; margin-right: 5px; border: 1px solid #7aa7c7; }
+
+    /* Botones de acción */
+    .btn-group { display: flex; gap: 10px; margin-top: 20px; }
+    .btn-view { background: #28a745; color: white !important; padding: 12px 20px; border-radius: 6px; text-decoration: none !important; font-weight: 600; font-size: 0.9em; transition: 0.3s; text-align: center; }
+    .btn-github { background: #24292e; color: white !important; padding: 12px 20px; border-radius: 6px; text-decoration: none !important; font-weight: 600; font-size: 0.9em; transition: 0.3s; text-align: center; }
+    
+    .btn-view:hover { background: #218838; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .btn-github:hover { background: #000; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+
     footer { background:#222; color:white; text-align:center; padding:20px; margin-top:30px; font-size:0.9em; }
-    a { color:#0077cc; text-decoration:none; }
-    a:hover { color:#005fa3; text-decoration:underline; }
   </style>
 </head>
 <body>
 
 <header>
   <h1>Blog de Ingeniería de Sistemas Camilo</h1>
-  <p>Proyectos prácticos</p>
+  <p>Portafolio de Proyectos Prácticos</p>
 </header>
 
 <nav>
@@ -34,20 +63,70 @@
 </nav>
 
 <div class="container">
-  <button class="accordion">Gestor de Tareas</button>
+  
+  <button class="accordion">📋 Gestor de Tareas</button>
   <div class="panel">
-    <p>Un sistema sencillo para crear, eliminar y organizar tareas de manera eficiente.</p>
+    <div class="project-grid">
+      <div class="img-container">
+        <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=500&q=80" alt="Vista del Gestor de Tareas">
+      </div>
+      <div class="project-info">
+        <h2>Task Manager Pro</h2>
+        <div class="tech-stack">
+          <span class="tech-badge">HTML5</span>
+          <span class="tech-badge">CSS3</span>
+          <span class="tech-badge">JavaScript</span>
+        </div>
+        <p>Un sistema avanzado para la organización personal. Incluye almacenamiento local (LocalStorage) para que no pierdas tus datos al cerrar el navegador.</p>
+        <div class="btn-group">
+          <a href="#" class="btn-view">Ver Demo en Vivo</a>
+          <a href="https://github.com/Cami-09" target="_blank" class="btn-github">Ver Código</a>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <button class="accordion">Blog de Prueba</button>
+  <button class="accordion">✍️ Blog de Prueba</button>
   <div class="panel">
-    <p>Proyecto simple para practicar HTML, CSS y navegación entre páginas.</p>
+    <div class="project-grid">
+      <div class="img-container">
+        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=500&q=80" alt="Vista del Blog">
+      </div>
+      <div class="project-info">
+        <h2>Diseño Web Responsivo</h2>
+        <div class="tech-stack">
+          <span class="tech-badge">HTML</span>
+          <span class="tech-badge">CSS Grid</span>
+        </div>
+        <p>Maquetación de un blog moderno con navegación fluida y diseño adaptativo para móviles y tablets.</p>
+        <div class="btn-group">
+          <a href="index.html" class="btn-view">Explorar Blog</a>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <button class="accordion">Juego de Memoria</button>
+  <button class="accordion">🧠 Juego de Memoria</button>
   <div class="panel">
-    <p>Un pequeño proyecto en JavaScript para entrenar la memoria y aprender programación.</p>
+    <div class="project-grid">
+      <div class="img-container">
+        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=500&q=80" alt="Vista del Juego">
+      </div>
+      <div class="project-info">
+        <h2>Memory Challenge JS</h2>
+        <div class="tech-stack">
+          <span class="tech-badge">JavaScript ES6</span>
+          <span class="tech-badge">Animaciones CSS</span>
+        </div>
+        <p>Pon a prueba tu mente con este juego de encontrar parejas. Utiliza lógica de arreglos y manejo de estados en JavaScript.</p>
+        <div class="btn-group">
+          <a href="#" class="btn-view">¡Jugar Ahora!</a>
+          <a href="https://github.com/Cami-09" target="_blank" class="btn-github">Repositorio</a>
+        </div>
+      </div>
+    </div>
   </div>
+
 </div>
 
 <footer>
@@ -55,12 +134,16 @@
 </footer>
 
 <script>
-const acc=document.getElementsByClassName("accordion");
-for(let i=0;i<acc.length;i++){
-  acc[i].addEventListener("click",function(){
+const acc = document.getElementsByClassName("accordion");
+for (let i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
     this.classList.toggle("active");
-    const panel=this.nextElementSibling;
-    panel.style.display=(panel.style.display==="block")?"none":"block";
+    const panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
   });
 }
 </script>
